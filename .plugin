@@ -1,0 +1,10 @@
+[Plugin]
+Loader=python3
+Module=xsd_expand_plugin
+IAge=3
+Name=XSD expand
+Description=Show the expanded definition of an XSD class
+Authors=Jacek Pliszka
+Copyright=GPLv3
+Website=https://github.com/JacekPliszka/xsd_expand
+Version=0.01

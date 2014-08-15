@@ -2,6 +2,7 @@
 # -*- coding:utf-8 -*-
 
 import sys
+import os.path
 import xml.etree.ElementTree as etree
 
 known_types={'string':{}}
@@ -16,7 +17,12 @@ def search(filename):
     root = tree.getroot()
     for child in root:
         if child.tag == '{http://www.w3.org/2001/XMLSchema}include':
-            subinc = child.attrib['schemaLocation']
+            subinc = os.path.normpath(
+                os.path.join(
+                    os.path.split(filename)[0],
+                    child.attrib['schemaLocation'],
+                )
+            )
             if subinc not in includes_searched:
                 includes_unknown.add(subinc)
             continue

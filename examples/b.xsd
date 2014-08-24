@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="ISO-8859-2"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" attributeFormDefault="unqualified" xml:lang="pl">
   <xsd:include schemaLocation="a.xsd"/>
+  <xsd:include schemaLocation="c.xsd"/>
   <xsd:complexType name="bbb">
+    <xsd:annotation>
+      <xsd:documentation>
+        Hej HEj
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:all>
       <xsd:element name="ba" type="aaa" minOccurs="0"/>
-      <xsd:element name="bc" type="string" minOccurs="0"/>
+      <xsd:element name="bc" type="string" minOccurs="0"/>  <!-- comment -->
+      <xsd:attribute name="battr" type="date" use="required"/>
+    </xsd:all>
   </xsd:complexType>
   <xsd:complexType name="cc">
       <xsd:element name="ba" type="aaa" minOccurs="0"/>

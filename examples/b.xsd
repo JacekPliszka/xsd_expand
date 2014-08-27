@@ -2,6 +2,7 @@
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" attributeFormDefault="unqualified" xml:lang="pl">
   <xsd:include schemaLocation="a.xsd"/>
   <xsd:include schemaLocation="c.xsd"/>
+  <xsd:include schemaLocation="e.xsd"/>
   <xsd:complexType name="bbb">
     <xsd:annotation>
       <xsd:documentation>
@@ -12,10 +13,30 @@
       <xsd:element name="ba" type="aaa" minOccurs="0"/>
       <xsd:element name="bc" type="string" minOccurs="0"/>  <!-- comment -->
       <xsd:attribute name="battr" type="date" use="required"/>
+      <xsd:element name='zee' type='dd'/>
     </xsd:all>
   </xsd:complexType>
   <xsd:complexType name="cc">
       <xsd:element name="ba" type="aaa" minOccurs="0"/>
       <xsd:element name="bc" type="string" minOccurs="0"/>
+      <xsd:group ref='EEE'/>
   </xsd:complexType>
+  <xsd:complexType name="dd">
+      <xsd:sequence>
+         <xsd:element name="ddel" minOccurs="0" maxOccurs="unbounded">
+           <xsd:complexType>
+              <xsd:group ref='EEE'/>
+              <xsd:attribute name='id' type='string' use='required'/>
+           </xsd:complexType>
+         </xsd:element>
+      </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ff" minOccurs="0">
+          <xsd:complexType>
+          <xsd:all>
+            <xsd:element name="ff111" type="aaa" minOccurs="0"/>
+            <xsd:element name="fff122" type="string" minOccurs="0"/>
+          </xsd:all>
+        </xsd:complexType>
+  </xsd:element>
 </xsd:schema>
